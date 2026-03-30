@@ -1,12 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-   <script src="./ass.js"></script>
+<meta charset="UTF-8">
+<title>Uttarakhand Tour and Travels</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('https://images.unsplash.com/photo-1509644851169-2acc08aa25b5') no-repeat center/cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.7);
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 20px;
+}
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+.contact {
+    font-size: 14px;
+}
+
+/* PAGES */
+.page {
+    display: none;
+    max-width: 480px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+/* INPUTS */
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+}
+
+button {
+    background: #1e3c72;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* TOUR BOX */
+.tour {
+    background: #f4f4f4;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+/* TOUR INFORMATION */
+.infoBox {
+    display: none;
+    background: #e6ffe6;
+    color: black;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.infoBox img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+}
+</style>
 </head>
 <body>
-    
+
+<div class="overlay">
+
+<div class="header">
+    <h1>🌄 UTTARAKHAND TOUR AND TRAVELS</h1>
+    <div class="contact">
+        📞 Booking Manager: 9876543210 | 9123456780
+    </div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="page">
+    <div class="card">
+        <h2>Customer Login</h2>
+        <input type="text" id="loginName" placeholder="Enter Name">
+        <input type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <button onclick="showRegister()">Create Account</button>
+    </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div id="registerPage" class="page">
+    <div class="card">
+        <h2>Create Account</h2>
+        <input type="text" placeholder="Full Name">
+        <input type="tel" placeholder="Phone Number">
+        <input type="password" placeholder="Password">
+        <button onclick="register()">Register</button>
+    </div>
+</div>
+
+<!-- HOME PAGE -->
+<div id="homePage" class="page">
+
+    <div class="card">
+        <h2>Welcome</h2>
+        ✔ Tours for Schools, Organisations & Individuals<br>
+        🏨 Hotel Included<br>
+        🍽️ Food Included<br>
+        🚐 Transport Included
+    </div>
+
+    <!-- TOUR 1 -->
+    <div class="tour">
+        <b>Nainital Tour</b><br>
+        <button onclick="showInfo('n1')">All Information</button>
+        <button onclick="bookTour('n1')">Book Tour</button>
+
+        <div id="n1" class="infoBox">
+            <b>Price:</b> ₹____ per person<br>
+            <b>Duration:</b> 3 Days<br>
+            <b>Itinerary:</b><br>
+            Day 1: Arrival + Check-in (12 PM)<br>
+            Mall Road Visit<br>
+            Dinner: 8 PM<br><br>
+            Day 2: Lake, Zoo, Snow View<br>
+            Breakfast: 9 AM, Lunch: 1 PM, Dinner: 8 PM<br><br>
+            Day 3: Checkout 11 AM<br><br>
+            🏨 Hotel: Lake View Resort | 🍽️ Food Included<br>
+            🚌 Bus No: 12A | Driver: Rajesh Kumar | 📞 9876543210<br>
+            👤 Team Leader: Suresh Singh | 📞 9123456780<br>
+            <b>Photos:</b><br>
+            <img src="https://images.unsplash.com/photo-1582719478250-4d2b42f102ee" alt="Nainital Lake">
+            <img src="https://images.unsplash.com/photo-1575911306530-8a648f78c3a5" alt="Mall Road">
+        </div>
+    </div>
+
+    <!-- TOUR 2 -->
+    <div class="tour">
+        <b>Mussoorie Tour</b><br>
+        <button onclick="showInfo('m1')">All Information</button>
+        <button onclick="bookTour('m1')">Book Tour</button>
+
+        <div id="m1" class="infoBox">
+            <b>Price:</b> ₹____ per person<br>
+            <b>Duration:</b> 2 Days<br>
+            <b>Itinerary:</b><br>
+            Day 1: Check-in + Mall Road, Dinner 8 PM<br>
+            Day 2: Kempty Falls, Breakfast 9 AM, Checkout 11 AM<br><br>
+            🏨 Hotel: Hill Resort | 🍽️ Food Included<br>
+            🚌 Bus No: 15B | Driver: Amit Sharma | 📞 9988776655<br>
+            👤 Team Leader: Ramesh Kumar | 📞 9876543210<br>
+            <b>Photos:</b><br>
+            <img src="https://images.unsplash.com/photo-1549887531-8027e4d6ee6c" alt="Mussoorie Hill">
+            <img src="https://images.unsplash.com/photo-1582719478250-4d2b42f102ee" alt="Kempty Falls">
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+© 2026 Uttarakhand Tour and Travels
+</div>
+
+</div>
+
+<script>
+document.getElementById("loginPage").style.display = "block";
+
+function login() {
+    let name = document.getElementById("loginName").value;
+    if(name) {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("homePage").style.display = "block";
+    } else {
+        alert("Enter your details!");
+    }
+}
+
+function showRegister() {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("registerPage").style.display = "block";
+}
+
+function register() {
+    alert("Account Created Successfully");
+    document.getElementById("registerPage").style.display = "none";
+    document.getElementById("loginPage").style.display = "block";
+}
+
+function showInfo(id) {
+    let all = document.querySelectorAll(".infoBox");
+    all.forEach(el => el.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+function bookTour(id) {
+    showInfo(id);
+    alert("Tour Booked Successfully!\nCheck all info above for Team Leader, Bus, Driver & Hotel info.");
+}
+</script>
+
 </body>
 </html>
